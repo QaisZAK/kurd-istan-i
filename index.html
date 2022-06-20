@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Ali's 17th Birthday </title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Open+Sans+Condensed:300" rel="stylesheet"
+        type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="output-color">
+            <span></span>
+        </div>
+        <div class="text">
+            <p> The first time I met you, I was honestly kind of scared of what you might be like and I thought you're probably the same as every other dude I met but now I literally can't stand a few hours without poking you for attention. Stay awesome, stay cool, stay cute, stay hyper, stay mine and smile more :) </p>
+        </div>
+    </div>
+    
+</body>
+
+</html>
+
+<style>
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .text {
+        position: abosulete;
+        font-family: 'Oswald';
+        color: White;
+        font-size: 80px;
+        z-index: 2;
+    }
+
+    #output-color {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+
+    #output-color span {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+    }
+</style>
+
+<script type="text/javascript">
+    let outputColor = document.querySelector("#output-color span");
+
+    let hexString = "0123456789abcdef";
+
+    let genHexCode = () => {
+        let hexCode = "#";
+        for (i = 0; i < 6; i++) {
+            hexCode += hexString[Math.floor(Math.random() * hexString.length)];
+        }
+        outputColor.classList.remove("show-color");
+        setTimeout(() => {
+            outputColor.classList.add("show-color");
+        }, 10);
+        outputColor.style.backgroundColor = hexCode;
+
+        document.body.style.backgroundColor = hexCode;
+    }
+
+
+    window.onload = genHexCode;
+</script>
